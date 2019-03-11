@@ -1,68 +1,33 @@
-package heima;
+package hello;
 
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Color;
-import java.awt.Font;
+
 import java.awt.Frame;
-import java.awt.List;
+
 import java.awt.Panel;
 import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
+
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
+
 import java.io.ByteArrayOutputStream;
-import java.io.File;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.RandomAccessFile;
-import java.io.SequenceInputStream;
-import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.nio.channels.DatagramChannel;
-import java.security.AllPermission;
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.ReentrantLock;
-
-import javax.lang.model.element.Element;
-import javax.sound.midi.Sequence;
-import javax.swing.*;
-
-import org.omg.CORBA.TRANSACTION_MODE;
-
-import heima2.*;
 
 /*
 class Receive extends Thread {
@@ -355,115 +320,3 @@ class hello {
 		new GUI();
 	}
 }
-/*
- * public static int fun(int i) { ArrayList<Integer> list = new ArrayList<>();
- * for (int a = 1; a <= i; a++) { list.add(a); } int count = 1; for (int a = 0;
- * list.size() != 1; a++) { if (a == list.size()) { a = 0; }
- * 
- * if (count % 3 == 0) { list.remove(a--); }
- * 
- * count++; } return list.get(0); }
- * 
- * public static long Length(File dir) {// 计算文件夹大小方法 long length = 0; File[]
- * files = dir.listFiles(); for (File file : files) { if (file.isFile()) {
- * length += file.length(); } else { length += Length(file);//
- * 如果是文件夹,则递归调用Length方法 } } return length; }
- * 
- * public static void Copy(File one, File two) throws IOException { File toDir =
- * new File(two, one.getName());
- * 
- * toDir.mkdir(); File[] files = one.listFiles(); for (File file : files) { if
- * (file.isFile()) { BufferedInputStream bis = new BufferedInputStream(new
- * FileInputStream(file)); BufferedOutputStream bos = new BufferedOutputStream(
- * new FileOutputStream(new File(toDir, file.getName()))); int a; if ((a =
- * bis.read()) != -1) { bos.write(a); } bis.close(); bos.close(); } else {
- * Copy(file, toDir); } } }
- * 
- * public static void Print(File dir, int a) { File[] files = dir.listFiles();
- * for (File file : files) { for (int i = 0; i <= a; i++) {
- * System.out.print("\t"); } System.out.println(file); if (file.isDirectory()) {
- * 
- * Print(file, a + 1); }
- * 
- * } }
- * 
- * public static File Dir() {// 获取文件夹路径方法 System.out.println("请输入文件夹路径:");
- * Scanner sc = new Scanner(System.in); String line = sc.nextLine(); File dir =
- * new File(line); while (true) { if (!dir.exists()) {
- * System.out.println("路径不存在,请重新输入: "); return null; } else if (dir.isFile()) {
- * System.out.println("请重新输入一个文件夹路径"); } else { return dir; } } }
- * 
- * public static void Ball(int arr[]) {
- * 
- * 
- * int temp, min, locat; for (int i = 0; i < arr.length; i++) { locat = i; for
- * (int j = i; j < arr.length; j++) { if (arr[locat] > arr[j]) { locat = j; }
- * 
- * } swtich(arr, locat, i); }
- * 
- * }
- * 
- * public static void swtich(int arr[], int i, int y) { int temp; temp = arr[i];
- * arr[i] = arr[y]; arr[y] = temp; }
- * 
- * }
- * 
- * class MYRunnale implements Runnable {
- * 
- * @Override public void run() { // TODO Auto-generated method stub for (int i =
- * 0; i < 100000; i++) { System.out.println("主线程"); }
- * 
- * }
- * 
- * }
- * 
- * class MYThread extends Thread { public void run() { for (int i = 0; i <
- * 100000; i++) { System.out.println("一"); } } }
- * 
- * 
- * class outer { public static Inter method() { return new Inter() { public void
- * show() { System.out.println("hello"); } };
- * 
- * 
- * return new Inter() { public void show() { System.out.println("hello"); } };
- * 
- * 
- * } }
- * 
- * interface Inter { void show(); }
- * 
- * interface Jump { public abstract void jump(); }
- * 
- * class Cat extends Animal implements Jump, Serializable {
- * 
- * public Cat() { }
- * 
- * public Cat(String name, int leg) { // TODO Auto-generated constructor stub
- * super(name, leg); }
- * 
- * public void eat() { // TODO Auto-generated method stub
- * System.out.println("猫吃鱼"); }
- * 
- * public void sleep() { // TODO Auto-generated method stub
- * System.out.println("猫睡觉"); }
- * 
- * public void jump() { // TODO Auto-generated method stub
- * System.out.println("猫跳高"); } }
- * 
- * class Dog extends Animal implements Jump, Serializable { public Dog() {
- * 
- * }
- * 
- * public Dog(String name, int leg) { super(name, leg); }
- * 
- * @Override public void eat() { // TODO Auto-generated method stub
- * System.out.println("狗吃骨头"); }
- * 
- * @Override public void sleep() { // TODO Auto-generated method stub
- * System.out.println("狗睡觉"); }
- * 
- * @Override public void jump() { // TODO Auto-generated method stub
- * System.out.println("狗跳高"); }
- * 
- * }
- */
